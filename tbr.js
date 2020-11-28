@@ -59,6 +59,7 @@ function remove(event){
             books.splice(i,1);
             break;
         }
+        
     }
     localStorage.setItem('books',JSON.stringify(books));
     bookD.remove();
