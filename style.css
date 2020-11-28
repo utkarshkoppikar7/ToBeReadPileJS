@@ -1,0 +1,61 @@
+h1 {
+  font-family: "Big Shoulders Stencil Text", cursive;
+  color: white;
+  justify-content: center;
+  text-align: center;
+  font-size: 50px;
+}
+
+input {
+  text-align: center;
+  margin: 0px auto;
+  display: block;
+  background-color: transparent;
+  color: white;
+  font-family: "Noto Sans JP", sans-serif;
+  padding: 10px;
+  border: none;
+  width: 300px;
+  border-bottom: 2px solid white;
+}
+
+.submitTBR {
+  border: rgb(238, 255, 0);
+  margin: auto;
+  display: flex;
+  padding: 5px;
+  width: 80px;
+  text-align: right;
+  border-width: 5px;
+}
+body {
+  background: linear-gradient(90deg, black, transparent),
+    repeating-linear-gradient(90deg, rgb(59, 59, 59) 0%, rgb(59, 59, 59) 5%);
+}
+
+.list {
+  color: white;
+  display: block;
+  list-style: none;
+  margin: 0px auto;
+}
+
+.TBRButton {
+  display: flex;
+}
+
+.TBRDiv {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  top: 50px;
+}
+
+i {
+  pointer-events: none;
+}
+
+.check {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
