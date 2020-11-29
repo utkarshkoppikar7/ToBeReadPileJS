@@ -2,7 +2,6 @@ const button = document.querySelector('.submitTBR');
 const input = document.querySelector('.inputText');
 const author = document.querySelector('.author');
 const list = document.querySelector('.list');
-let local=[];
 
 button.addEventListener('click',addBook);
 document.addEventListener('DOMContentLoaded',runLocal);
@@ -44,24 +43,26 @@ function addBook(event){
 function remove(event){
     const bookB = event.target;
     const bookD = bookB.parentElement;
-    console.log(bookD.innerText);
-    let books;
+    let books,checkList;
     if(localStorage.getItem('books') === null){
         books=[];
+        checkList=[];
     }
     else{
         books=JSON.parse(localStorage.getItem('books'));
+        checkList=JSON.parse(localStorage.getItem('checkList'));
     }
 
     for(i in books){
         if(books[i]==bookD.innerText){
-            console.log(books[i]);
             books.splice(i,1);
+            checkList.splice(i,1);
             break;
         }
         
     }
     localStorage.setItem('books',JSON.stringify(books));
+    localStorage.setItem('checkList',JSON.stringify(checkList));
     bookD.remove();
 }
 
@@ -69,33 +70,61 @@ function check(event){
     const bookB = event.target;
     const text=bookB.parentElement.children[0];
     text.classList.toggle('check');
+    let books,checkList;
+    if(localStorage.getItem('books') === null){
+        books=[];
+        checkList=[];
+    }
+    else{
+        books=JSON.parse(localStorage.getItem('books'));
+        checkList=JSON.parse(localStorage.getItem('checkList'));
+    }
+    for(let i=0;i<books.length;i++){
+        if(books[i] == text.innerText){
+            console.log(books[i]);
+            if(checkList[i]){
+                checkList[i] = false;
+            }
+            else{
+                checkList[i] = true;
+            }
+        }
+    }
+    localStorage.setItem('checkList',JSON.stringify(checkList));
 }
 
 function saveBook(book){
-    let books;
+    let books,checkList;
     if(localStorage.getItem('books') === null){
         books=[];
+        checkList=[];
     }
     else{
         books=JSON.parse(localStorage.getItem('books'));
+        checkList=JSON.parse(localStorage.getItem('checkList'));
     }
     books.push(book);
+    checkList.push(false);
     localStorage.setItem('books',JSON.stringify(books));
+    localStorage.setItem('checkList',JSON.stringify(checkList));
 }
 function runLocal(){
-    let books;
+    let books,checkList;
     if(localStorage.getItem('books') === null){
         books=[];
+        checkList=[];
     }
     else{
         books=JSON.parse(localStorage.getItem('books'));
+        checkList=JSON.parse(localStorage.getItem('checkList'));
     }
-
-    for (element in books){
-        divLocal(books[element]);
+    console.log(books.length);
+    console.log(checkList.length);
+    for (let i=0;i<books.length;i++){
+        divLocal(books[i],checkList[i]);
     }
 }
-function divLocal(element){
+function divLocal(element,num){
     const bookDiv = document.createElement('div');
     const book = document.createElement('li');
     const deleteB = document.createElement('button');
@@ -113,6 +142,10 @@ function divLocal(element){
     bookDiv.appendChild(checkB);
     bookDiv.appendChild(deleteB);
     list.appendChild(bookDiv);
+
+    if(num){
+        book.classList.toggle('check');       
+    }
 
     deleteB.addEventListener('click',remove);   
     checkB.addEventListener('click',check);
