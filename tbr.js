@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded',runLocal);
 
 function addBook(event){
     event.preventDefault();
+    window.scrollBy(0,window.innerHeight+100);
 
     const bookDiv = document.createElement('div');
     const book = document.createElement('li');
