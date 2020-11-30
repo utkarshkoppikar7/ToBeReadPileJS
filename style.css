@@ -54,6 +54,7 @@ body {
   display: flex;
   background-color: red;
   color: white;
+  padding: 4px;
 }
 
 .TBRDiv {
@@ -77,4 +78,11 @@ i {
 .check {
   text-decoration: line-through;
   opacity: 0.7;
+}
+
+.Link {
+  display: flex;
+  background-color: yellow;
+  color: black;
+  padding: 4px;
 }
