@@ -32,27 +32,14 @@ function addBook(event){
     bookDiv.appendChild(book);
 
     //?Good reads API requests
-    let url = "https://www.goodreads.com/book/title.json";
+    let url = "https://www.goodreads.com/book/title.xml";
     let param ="?author="+author1.value+"&key=uzyY7MDzUPxwxlgR05W3ZQ&title="+input.value;
     param=param.replace(" ","+")
     url=url+param
 
     //! Add a proper API Page 
     //! Right now just linking the GoodReads page
-    /*
-    const  other={
-        headers:{
-            "content-type" : "application/json; charset=UTF-8"
-        },
-        body: param,
-        method:"POST"
-    };
-    
-    fetch(url,param)
-    .then(data=>{return data.json()})
-    .then(res=>{console.log(res)})
-    .catch(error=>console.log(error))
-    */
+
 
     //?Other code
     deleteB.innerHTML='<i class="fa fa-times" aria-hidden="true"></i>';
@@ -70,7 +57,8 @@ function addBook(event){
     input.value='';
     author1.value='';
     link.addEventListener('click',function(){
-    window.open(url,'_blank');
+        localStorage.setItem('url',url);
+        window.open('page1.html','_blank');
     });
 }
 

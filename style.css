@@ -55,6 +55,7 @@ body {
   background-color: red;
   color: white;
   padding: 4px;
+  border: 1px solid white;
 }
 
 .TBRDiv {
@@ -69,6 +70,7 @@ body {
   background-color: green;
   color: white;
   padding: 4px;
+  border: 2px solid white;
 }
 
 i {
@@ -85,4 +87,8 @@ i {
   background-color: yellow;
   color: black;
   padding: 4px;
+  border: 2px solid black;
+}
+p {
+  color: white;
 }
