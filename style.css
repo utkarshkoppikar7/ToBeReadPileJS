@@ -35,9 +35,12 @@ input {
   background-color: white;
 }
 
-body {
-  background: linear-gradient(90deg, black, transparent),
-    repeating-linear-gradient(90deg, rgb(59, 59, 59) 0%, rgb(59, 59, 59) 5%);
+.body1 {
+  background: linear-gradient(90deg, black, 50%, grey);
+}
+
+.body2 {
+  background: linear-gradient(90deg, grey, 10%, black);
 }
 
 .list {

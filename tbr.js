@@ -32,7 +32,7 @@ function addBook(event){
     bookDiv.appendChild(book);
 
     //?Good reads API requests
-    let url = "https://www.goodreads.com/book/title.xml";
+    let url = "https://www.goodreads.com/book/title.json";
     let param ="?author="+author1.value+"&key=uzyY7MDzUPxwxlgR05W3ZQ&title="+input.value;
     param=param.replace(" ","+")
     url=url+param
